@@ -1,0 +1,31 @@
+import random
+
+def getuserchoice():
+    return input("Choose Rock, Paper, or Scissors: ").lower()
+
+def getcomputerchoice():
+    choices = ['rock', 'paper', 'scissors']
+    return random.choice(choices)
+
+def determine_winner(userchoice, computerchoice):
+    if userchoice == computerchoice:
+        return "It's a tie!"
+    elif (userchoice == 'rock' and computerchoice == 'scissors') or \
+         (userchoice == 'paper' and computerchoice == 'rock') or \
+         (userchoice == 'scissors' and computerchoice == 'paper'):
+        return "You win!"
+    else:
+        return "Computer wins!"
+
+def rock_paper_scissors():
+    userchoice = getuserchoice()
+    computerchoice = getcomputerchoice()
+
+    print(f"You chose {userchoice}")
+    print(f"Computer chose {computerchoice}")
+
+    result = determine_winner(userchoice, computerchoice)
+    print(result)
+
+if __name__ == "__main__":
+    rock_paper_scissors()
