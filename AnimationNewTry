@@ -1,0 +1,47 @@
+import pygame
+import sys
+
+
+pygame.init()
+
+width, height = 800, 600
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("ThisTakesAgesToWork")
+
+ballradius = 20
+ballcolor = (255, 0, 0)  # Red
+ballposition = [width // 2, height // 2]
+ballspeed = [5, 5]
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    
+    ballposition[0] += ballspeed[0]
+    ballposition[1] += ballspeed[1]
+
+    
+    if ballposition[0] - ballradius < 0 or ballposition[0] + ballradius > width:
+        ballspeed[0] = -ballspeed[0]
+    if ballposition[1] - ballradius < 0 or ballposition[1] + ballradius > height:
+        ballspeed[1] = -ballspeed[1]
+
+    
+    screen.fill((255, 255, 255))  
+
+    
+    pygame.draw.circle(screen, ballcolor, (int(ballposition[0]), int(ballposition[1])), ballradius)
+
+    
+    pygame.display.flip()
+
+    
+    pygame.time.Clock().tick(30)
+
+
+
+#whydoesthisthingtakesages 
+
