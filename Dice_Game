@@ -1,0 +1,17 @@
+import random
+
+def rolldie():
+    return random.randint(1, 6)
+
+def dice_rolling_simulator():
+    while True:
+        input("Press Enter to roll the die dude...")
+        result = rolldie()
+        print(f"You rolled a {result}")
+
+        play_again = input("Roll again? (y/n): ").lower()
+        if play_again != 'y':
+            break
+
+if __name__ == "__main__":
+    dice_rolling_simulator()
